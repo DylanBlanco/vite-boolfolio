@@ -7,7 +7,7 @@
 */
 // 1) Importazione del componente
 import AppHeader from './components/AppHeader.vue';
-
+import AppMain from './components/AppMain.vue';
 export default {
   data() {
     return { 
@@ -16,7 +16,8 @@ export default {
   },
   // 2) Dichiarazione del componente
   components: {
-    AppHeader
+    AppHeader,
+    AppMain
   },
   methods: {
     incrementCount() {
@@ -31,11 +32,7 @@ export default {
     <!-- 3) Utilizzo del componente -->
     <AppHeader />
     
-    <main>
-      <button class="btn btn-primary" @click="incrementCount()">
-        {{ count }}
-      </button>
-    </main>
+    <AppMain />
   </div>
 </template>
 
