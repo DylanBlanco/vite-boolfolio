@@ -33,6 +33,7 @@ export default {
     <AppHeader />
     
     <AppMain />
+
   </div>
 </template>
 
