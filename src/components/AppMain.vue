@@ -8,28 +8,27 @@ export default {
           projects: [],
         }
     },
-    // created() {
-    //   axios
-    //     //   .get('http://localhost/phpMyAdmin5/index.php?route=/database/structure&server=1&db=classe130_boolfolio')
-    //       .get('http://localhost/phpMyAdmin5/index.php?route=/sql&db=classe130_boolfolio&table')
-    //       .then((res) => {
-    //           console.log('oggetto creato da axios',res);
-    //           console.log('dati che ci ha risposto il server', res.data.data);
-
-    //           // salva dati
-    //           this.projects = res.data;
-    //       });
+    // async mounted() {
+    //     try {
+    //     const response = await axios.get('http://localhost:8000/api/projects');
+    //     this.projects = response.data;
+    //     } 
+    //     catch (error) {
+    //     console.error('Errore nel recupero dei progetti:', error);
+    //     }
     // },
-    async mounted() {
-        try {
-        const response = await axios.get('http://localhost:8000/api/projects');
-        this.projects = response.data;
-        } 
-        catch (error) {
-        console.error('Errore nel recupero dei progetti:', error);
-        }
+    mounted() {
+        this.getProjects();
     },
     methods: {
+        getProjects () {
+            axios
+                .get('http://localhost:8000/api/projects')
+                .then((res) => {
+                    console.log(res.data);
+                    this.projects = res.data;
+                });
+        }
     }
 }
 </script>
